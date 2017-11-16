@@ -3,7 +3,7 @@ plist = list(phrase)
 print(phrase)
 print(plist)
 
-for i in range(4)
+for i in range(4):
     plist.pop()
 plist.pop(0)
 plist.remove("'")
