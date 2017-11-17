@@ -9,5 +9,5 @@ for letter in word:
     if letter in vowels:
         found[letter] += 1
 
-for vowel in found:
+for vowel in sorted(found):
     print(vowel, 'was found', found[vowel], 'time(s).')
