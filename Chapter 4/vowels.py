@@ -1,6 +1,4 @@
-def search_for_vowels(word):
+def search_for_vowels(word:str) -> set:
     """Display any vowels found in an asked-for word."""
     vowels = set('aeiou')
-    found = vowels.intersection(set(word))
-    for vowel in found:
-        print(vowel)
+    return vowels.intersection(set(word))
