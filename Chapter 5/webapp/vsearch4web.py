@@ -1,19 +1,26 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from vowels import search_for_letters
 
 app = Flask(__name__)
 
 
 @app.route('/')
-def hello() -> str:
-    return 'Hello world from Flask!'
+def hello() -> '302':
+    return redirect('/entry')
 
 
 @app.route('/search4', methods=['POST'])
-def search_for() -> str:
+def do_search() -> 'html':
+    title = 'Here are your results:'
     phrase = request.form['phrase']
     letters = request.form['letters']
-    return str(search_for_letters(phrase, letters))
+    results = str(search_for_letters(phrase, letters))
+
+    return render_template('results.html',
+                           the_title=title,
+                           the_phrase=phrase,
+                           the_letters=letters,
+                           the_results=results)
 
 
 @app.route('/entry')
