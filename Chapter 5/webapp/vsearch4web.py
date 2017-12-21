@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from vowels import search_for_letters
 
 app = Flask(__name__)
@@ -11,7 +11,9 @@ def hello() -> str:
 
 @app.route('/search4', methods=['POST'])
 def search_for() -> str:
-    return str(search_for_letters('life, the universe, and everything!', 'eiru'))
+    phrase = request.form['phrase']
+    letters = request.form['letters']
+    return str(search_for_letters(phrase, letters))
 
 
 @app.route('/entry')
