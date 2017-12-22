@@ -24,4 +24,5 @@ def entry_page() -> 'html':
     return render_template('entry.html', the_title='Welcome to search for letters on the web!')
 
 
-app.run()
+if __name__ == '__main__':
+    app.run()
